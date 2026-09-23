@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useState } from "react";
 
 const links = [
   { href: "/workouts", label: "Workouts" },
@@ -12,7 +13,12 @@ const links = [
 ];
 
 const Navbar = () => {
+  const [isMenuClick, setIsMenuClick] = useState<boolean>(false);
   const pathname = usePathname();
+
+  const handleMenuClick = () => {
+    setIsMenuClick(!isMenuClick);
+  };
 
   const navlinks = links.map(({ href, label }) => {
     const isActive = pathname === href;
@@ -33,11 +39,14 @@ const Navbar = () => {
     );
   });
   return (
-    <nav className="bg-darkBlack border-b border-b-navStrock px-4 md:px-2 lg:px-0">
+    <nav className="bg-darkBlack border-b border-b-navStrock px-4 md:px-2 lg:px-0 relative">
       <div className="navbar container mx-auto flex justify-between text-center">
         {/* Hamburger icon for mobile menu */}
         <div className="block lg:hidden">
-          <GiHamburgerMenu className="text-gray text-2xl cursor-pointer "/>
+          <GiHamburgerMenu
+            className="text-gray text-2xl cursor-pointer "
+            onClick={handleMenuClick}
+          />
         </div>
         {/* left */}
         <div className="">
@@ -71,6 +80,15 @@ const Navbar = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`px-4 md:px-2 lg:px-0 lg:hidden flex  ${isMenuClick ? "max-h-96" : "max-h-0 overflow-hidden"} absolute top-14 left-0`}
+      >
+        <ul className={`menu menu-horizontal px-1 flex flex-col`}>
+          {navlinks}
+        </ul>
       </div>
     </nav>
   );

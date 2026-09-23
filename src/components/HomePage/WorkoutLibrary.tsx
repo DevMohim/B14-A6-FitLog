@@ -6,7 +6,7 @@ import WorkOutCard from "../shared/WorkOutCard";
 const WorkoutLibrary = async () => {
   const workouts = await getData();
   return (
-    <section className="mt-16">
+    <section className="mt-16 pb-12">
       <div className="container mx-auto px-4">
         {/* heading */}
         <div className="space-y-1 mb-8">

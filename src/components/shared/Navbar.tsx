@@ -8,7 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 
 const links = [
-  { href: "/workouts", label: "Workouts" },
+  { href: "/", label: "Workouts" },
   { href: "/my-plan", label: "My Plan" },
 ];
 
@@ -24,7 +24,7 @@ const Navbar = () => {
     const isActive = pathname === href;
 
     return (
-      <li key={href}>
+      <li key={href} className="mr-2">
         <Link
           href={href}
           className={`rounded-2xl text-[12px] font-medium transition-all duration-150 ease-in-out ${
@@ -39,7 +39,7 @@ const Navbar = () => {
     );
   });
   return (
-    <nav className="bg-darkBlack border-b border-b-navStrock px-4 relative">
+    <nav className="bg-darkBlack border-b border-b-navStrock fixed top-0 left-0 w-full px-4 ">
       <div className="navbar container mx-auto flex justify-between text-center">
         {/* Hamburger icon for mobile menu */}
         <div className="block lg:hidden">

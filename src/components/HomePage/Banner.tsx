@@ -3,7 +3,7 @@ import BannerImage from "@/assets/banner.png";
 
 const Banner = () => {
   return (
-    <section className="mt-12 px-4 ">
+    <section className="mt-24 px-4 ">
       <div className="container mx-auto bg-dark border border-cardStrock p-14 flex flex-col lg:flex-row justify-between items-center rounded-2xl ">
         {/* left */}
         <div className="space-y-5 text-center lg:text-left">

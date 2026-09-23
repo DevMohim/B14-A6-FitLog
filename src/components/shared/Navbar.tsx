@@ -39,7 +39,7 @@ const Navbar = () => {
     );
   });
   return (
-    <nav className="bg-darkBlack border-b border-b-navStrock px-4 md:px-2 lg:px-0 relative">
+    <nav className="bg-darkBlack border-b border-b-navStrock px-4 relative">
       <div className="navbar container mx-auto flex justify-between text-center">
         {/* Hamburger icon for mobile menu */}
         <div className="block lg:hidden">

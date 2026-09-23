@@ -3,8 +3,8 @@ import BannerImage from "@/assets/banner.png";
 
 const Banner = () => {
   return (
-    <section className="mt-12 px-4 md:px-2 lg:px-0">
-      <div className="container mx-auto bg-dark border border-bannerStrock p-14 flex flex-col lg:flex-row justify-between items-center rounded-2xl ">
+    <section className="mt-12 px-4 ">
+      <div className="container mx-auto bg-dark border border-cardStrock p-14 flex flex-col lg:flex-row justify-between items-center rounded-2xl ">
         {/* left */}
         <div className="space-y-5 text-center lg:text-left">
           <h3 className="text-green font-bold text-[11px] tracking-[1.1px] uppercase">

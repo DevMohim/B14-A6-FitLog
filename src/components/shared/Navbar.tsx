@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Logo from "@/assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { useWorkoutContext } from "@/context/workoutContext";
 
 const links = [
   { href: "/", label: "Workouts" },
@@ -19,6 +20,8 @@ const Navbar = () => {
   const handleMenuClick = () => {
     setIsMenuClick(!isMenuClick);
   };
+
+  const {planCart,savedCart} = useWorkoutContext()
 
   const navlinks = links.map(({ href, label }) => {
     const isActive = pathname === href;
@@ -68,7 +71,7 @@ const Navbar = () => {
               Plan
             </h1>
             <div className="w-5 h-5  flex justify-center items-center bg-green rounded-full text-black font-bold text-[11px]">
-              0
+              {planCart.length}
             </div>
           </div>
           <div className="flex gap-2 items-center cursor-pointer">
@@ -76,7 +79,7 @@ const Navbar = () => {
               Saved
             </h1>
             <div className="w-5 h-5  flex justify-center items-center bg-green rounded-full text-black font-bold text-[11px]">
-              0
+             {savedCart.length}
             </div>
           </div>
         </div>

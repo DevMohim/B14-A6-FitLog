@@ -1,8 +1,8 @@
+import AddPlanBtn from '@/components/DetailsPage/AddPlanBtn';
 import { IWorkoutType } from '@/types/workout.type';
 import Image from 'next/image';
-import React from 'react';
-import { FaRegBookmark } from 'react-icons/fa';
-import { LuCalendarPlus2 } from 'react-icons/lu';
+import SavedLaterBtn from '@/components/DetailsPage/SavedLaterBtn'
+
 
 interface DetailsPageProps {
    params : {
@@ -157,14 +157,8 @@ const DetailsPage = async({params}:DetailsPageProps) => {
 
            {/* buttons */}
            <div className="flex items-center gap-4">
-             <button className="bg-green px-6 py-3 rounded-xl font-bold text-[12px] text-black tracking-[0.3px] cursor-pointer flex items-center gap-2">
-               <LuCalendarPlus2 className="w-4 h-4" />{" "}
-               <span>Add to todays plan</span>
-             </button>
-             <button className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-[12px] text-[#E5E7EB] border border-[#374151] tracking-[0.3px] cursor-pointer">
-               <FaRegBookmark className="w-4 h-4" />
-               <span>Save for later</span>
-             </button>
+            <AddPlanBtn workout = {workout}/>
+            <SavedLaterBtn workout={workout} />
            </div>
          </div>
        </div>

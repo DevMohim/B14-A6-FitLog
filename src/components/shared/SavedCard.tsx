@@ -2,24 +2,18 @@ import { IWorkoutType } from "@/types/workout.type";
 import Image from "next/image";
 import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { TbFlameFilled } from "react-icons/tb";
-import PlanDeleteBtn from "../MyAppPage/PlanDeleteBtn";
+import SavedDeleteBtn from "../MyAppPage/SavedDeleteBtn";
 import Link from "next/link";
 
-const PlanCard = ({
-  workout,
-  activeTab,
-}: {
-  workout: IWorkoutType;
-  activeTab: "today" | "saved";
-}) => {
+const SavedCard = ({ workout }: { workout: IWorkoutType }) => {
   const { id, image, name, equipment, duration, caloriesBurned, rating } =
     workout;
 
   return (
-    <div className="flex flex-col md:flex-row gap-4 justify-between items-center p-4 bg-[#14171E] border border-[#232732] rounded-2xl ">
+    <div className="flex justify-between items-center p-4 bg-[#14171E] border border-[#232732] rounded-2xl ">
       {/* left */}
       <div className="flex gap-4 items-center">
-        <Image src={image} alt={name} width={80} height={144}  className="w-36 h-20 rounded-xl"/>
+        <Image src={image} alt={name} width={80} height={144} />
         {/* info */}
         <div>
           <h1 className="font-oswald text-white font-bold">{name}</h1>
@@ -58,15 +52,10 @@ const PlanCard = ({
             View Details
           </button>
         </Link>
-        <button
-          className={`bg-green rounded-2xl text-black font-semibold text-[12px] px-5 py-2 cursor-pointer ${activeTab === "saved" ? "hidden" : ""}`}
-        >
-          ✓ Mark as done{" "}
-        </button>
-        <PlanDeleteBtn workout={workout} activeTab={activeTab} />
+        <SavedDeleteBtn workout={workout} />
       </div>
     </div>
   );
 };
 
-export default PlanCard;
+export default SavedCard;

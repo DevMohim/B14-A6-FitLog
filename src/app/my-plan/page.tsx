@@ -3,20 +3,30 @@
 import PlanCard from "@/components/shared/PlanCard";
 import { useWorkoutContext } from "@/context/workoutContext";
 import { IWorkoutType } from "@/types/workout.type";
+import Link from "next/link";
 import { useState } from "react";
 
 const MyPlanPage = () => {
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
   const { planCart, savedCart } = useWorkoutContext();
 
-  const currentCart = activeTab === "today" ? planCart : savedCart;
+  const currentPlanCart = activeTab === "today" ? planCart : savedCart;
+  const currentSavedCart = activeTab === 'saved' ? savedCart : planCart;
 
-  const totalMinutes = currentCart.reduce(
+  const totalPlanMinutes = currentPlanCart.reduce(
+    (acc, workout) => acc + workout.duration,
+    0,
+  );
+  const totalSavedMinutes = currentSavedCart.reduce(
     (acc, workout) => acc + workout.duration,
     0,
   );
 
-  const totalCalories = currentCart.reduce(
+  const totalPlanCalories = currentPlanCart.reduce(
+    (acc, workout) => acc + workout.caloriesBurned,
+    0,
+  );
+  const totalSavedCalories = currentSavedCart.reduce(
     (acc, workout) => acc + workout.caloriesBurned,
     0,
   );
@@ -39,29 +49,30 @@ const MyPlanPage = () => {
           <div>
             <p className="text-[12px] text-[#8A92A0]">Exercises</p>
             <h2 className="font-oswald text-4xl font-bold text-green">
-              {currentCart.length}
+              {activeTab === "today"
+                ? currentPlanCart.length
+                : currentSavedCart.length}
             </h2>
           </div>
 
           <div className="border-l border-[#232732]/60 pl-9">
             <p className="text-[12px] text-[#8A92A0]">Minutes</p>
             <h2 className="font-oswald text-4xl font-bold text-white">
-              {totalMinutes}
+              {activeTab === "today" ? totalPlanMinutes : totalSavedMinutes}
             </h2>
           </div>
 
           <div className="border-l border-[#232732]/60 pl-9">
             <p className="text-[12px] text-[#8A92A0]">Calories</p>
             <h2 className="font-oswald text-4xl font-bold text-white">
-              {totalCalories}
+              {activeTab === "today" ? totalPlanCalories : totalSavedCalories}
             </h2>
           </div>
         </div>
 
         {/* Tabs and sort */}
         <div className="flex items-center justify-between">
-
-         {/* tabs side */}
+          {/* tabs side */}
           <div className="h-12.5 rounded-xl border border-[#232732] bg-[#151921] p-1">
             <div className="tabs bg-[#151921]">
               <input
@@ -102,11 +113,31 @@ const MyPlanPage = () => {
         </div>
 
         {/* Workout cards */}
-        <div className="grid grid-cols-1 gap-4">
-          {currentCart.map((workout: IWorkoutType) => (
-            <PlanCard key={workout.id} workout={workout} />
-          ))}
-        </div>
+        {currentPlanCart.length > 0 ? (
+          <div className="grid grid-cols-1 gap-4">
+            {currentPlanCart.map((workout: IWorkoutType) => (
+              <PlanCard
+                key={workout.id}
+                workout={workout}
+                activeTab={activeTab}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-col justify-center items-center border border-dashed border-white/10 rounded-xl py-20 px-4 container mx-auto">
+            <h1 className="font-oswald text-xl font-bold text-white">
+              Nothing here yet
+            </h1>
+            <p className="text-[12px] text-[#A1A1AA] mb-6">
+              Browse the library and add a lift to get today moving.
+            </p>
+            <Link href="/">
+              <button className="bg-green px-6 py-3 rounded-2xl font-bold text-[12px] text-black tracking-[0.3px] cursor-pointer">
+                Go to workouts
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -18,9 +18,11 @@ const Banner = () => {
             <br />
             into todays plan, and watch the weeks work add up.
           </p>
-          <button className="bg-green px-6 py-3 rounded-md font-bold text-[12px] text-black tracking-[0.3px] cursor-pointer">
-            Browse Workouts
-          </button>
+          <a href="#library">
+            <button className="bg-green px-6 py-3 rounded-md font-bold text-[12px] text-black tracking-[0.3px] cursor-pointer">
+              Browse Workouts
+            </button>
+          </a>
         </div>
         {/* middle */}
         <div className="w-25 h-25 hidden lg:block"></div>

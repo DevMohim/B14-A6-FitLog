@@ -76,68 +76,74 @@ const DetailsPage = async({params}:DetailsPageProps) => {
              </ul>
            </div>
 
+           {/* Table  */}
            <div className="mb-8">
-             <ul className="bg-[#151922] rounded-2xl border border-[#232834]">
-               <li className="px-6 py-3.5 flex justify-between items-center text-darkGray">
-                 <h2 className="font-bold text-[12px] tracking-[0.6px] uppercase">
-                   Equipment
-                 </h2>
-                 <p className="font-medium text-[14px] text-[#E5E7EB]">
-                   {equipment}
-                 </p>
-               </li>
+             <table className="w-full overflow-hidden rounded-2xl border border-[#232834] bg-[#151922]">
+               <tbody>
+                 <tr className="text-darkGray">
+                   <th className="px-6 py-3.5 text-left font-bold text-[12px] uppercase tracking-[0.6px]">
+                     Equipment
+                   </th>
+                   <td className="px-6 py-3.5 text-right text-[14px] font-medium text-[#E5E7EB]">
+                     {equipment}
+                   </td>
+                 </tr>
 
-               <li className="px-6 py-3.5 flex justify-between items-center text-darkGray border-t border-t-[#1E2330]">
-                 <h2 className="font-bold text-[12px] tracking-[0.6px] uppercase">
-                   Difficulty
-                 </h2>
-                 <p className="font-medium text-[14px] text-[#E5E7EB]">
-                   {difficulty}
-                 </p>
-               </li>
+                 <tr className="border-t border-[#1E2330] text-darkGray">
+                   <th className="px-6 py-3.5 text-left font-bold text-[12px] uppercase tracking-[0.6px]">
+                     Difficulty
+                   </th>
+                   <td className="px-6 py-3.5 text-right text-[14px] font-medium text-[#E5E7EB]">
+                     {difficulty}
+                   </td>
+                 </tr>
 
-               <li className="px-6 py-3.5 flex justify-between items-center text-darkGray border-t border-t-[#1E2330]">
-                 <h2 className="font-bold text-[12px] tracking-[0.6px] uppercase">
-                   Sets
-                 </h2>
-                 <p className="font-medium text-[14px] text-[#E5E7EB]">
-                   {sets}
-                 </p>
-               </li>
+                 <tr className="border-t border-[#1E2330] text-darkGray">
+                   <th className="px-6 py-3.5 text-left font-bold text-[12px] uppercase tracking-[0.6px]">
+                     Sets
+                   </th>
+                   <td className="px-6 py-3.5 text-right text-[14px] font-medium text-[#E5E7EB]">
+                     {sets}
+                   </td>
+                 </tr>
 
-               <li className="px-6 py-3.5 flex justify-between items-center text-darkGray border-t border-t-[#1E2330]">
-                 <h2 className="font-bold text-[12px] tracking-[0.6px] uppercase">
-                   reps
-                 </h2>
-                 <p className="font-medium text-[14px] text-[#E5E7EB]">
-                   {reps}
-                 </p>
-               </li>
-               <li className="px-6 py-3.5 flex justify-between items-center text-darkGray border-t border-t-[#1E2330]">
-                 <h2 className="font-bold text-[12px] tracking-[0.6px] uppercase">
-                   duration
-                 </h2>
-                 <p className="font-medium text-[14px] text-[#E5E7EB]">
-                   {duration}
-                 </p>
-               </li>
-               <li className="px-6 py-3.5 flex justify-between items-center text-darkGray border-t border-t-[#1E2330]">
-                 <h2 className="font-bold text-[12px] tracking-[0.6px] uppercase">
-                   calories
-                 </h2>
-                 <p className="font-medium text-[14px] text-[#E5E7EB]">
-                   {caloriesBurned}
-                 </p>
-               </li>
-               <li className="px-6 py-3.5 flex justify-between items-center text-darkGray border-t border-t-[#1E2330]">
-                 <h2 className="font-bold text-[12px] tracking-[0.6px] uppercase">
-                   rating
-                 </h2>
-                 <p className="font-medium text-[14px] text-[#E5E7EB]">
-                   {rating}
-                 </p>
-               </li>
-             </ul>
+                 <tr className="border-t border-[#1E2330] text-darkGray">
+                   <th className="px-6 py-3.5 text-left font-bold text-[12px] uppercase tracking-[0.6px]">
+                     Reps
+                   </th>
+                   <td className="px-6 py-3.5 text-right text-[14px] font-medium text-[#E5E7EB]">
+                     {reps}
+                   </td>
+                 </tr>
+
+                 <tr className="border-t border-[#1E2330] text-darkGray">
+                   <th className="px-6 py-3.5 text-left font-bold text-[12px] uppercase tracking-[0.6px]">
+                     Duration
+                   </th>
+                   <td className="px-6 py-3.5 text-right text-[14px] font-medium text-[#E5E7EB]">
+                     {duration}
+                   </td>
+                 </tr>
+
+                 <tr className="border-t border-[#1E2330] text-darkGray">
+                   <th className="px-6 py-3.5 text-left font-bold text-[12px] uppercase tracking-[0.6px]">
+                     Calories
+                   </th>
+                   <td className="px-6 py-3.5 text-right text-[14px] font-medium text-[#E5E7EB]">
+                     {caloriesBurned}
+                   </td>
+                 </tr>
+
+                 <tr className="border-t border-[#1E2330] text-darkGray">
+                   <th className="px-6 py-3.5 text-left font-bold text-[12px] uppercase tracking-[0.6px]">
+                     Rating
+                   </th>
+                   <td className="px-6 py-3.5 text-right text-[14px] font-medium text-[#E5E7EB]">
+                     {rating}
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
            </div>
 
            {/* Instruction */}
@@ -157,8 +163,8 @@ const DetailsPage = async({params}:DetailsPageProps) => {
 
            {/* buttons */}
            <div className="flex items-center gap-4">
-            <AddPlanBtn workout = {workout}/>
-            <SavedLaterBtn workout={workout} />
+             <AddPlanBtn workout={workout} />
+             <SavedLaterBtn workout={workout} />
            </div>
          </div>
        </div>

@@ -8,6 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
 import { useWorkoutContext } from "@/context/workoutContext";
 
+
 const links = [
   { href: "/", label: "Workouts" },
   { href: "/my-plan", label: "My Plan" },
@@ -42,7 +43,7 @@ const Navbar = () => {
     );
   });
   return (
-    <nav className="bg-darkBlack border-b border-b-navStrock fixed top-0 left-0 w-full px-4 ">
+    <nav className="bg-darkBlack border-b border-b-navStrock fixed top-0 left-0 z-50 w-full px-4 ">
       <div className="navbar container mx-auto flex justify-between text-center">
         {/* Hamburger icon for mobile menu */}
         <div className="block lg:hidden">
@@ -66,22 +67,26 @@ const Navbar = () => {
         </div>
         {/* right */}
         <div className=" flex gap-6 items-center">
-          <div className="flex gap-2 items-center cursor-pointer">
-            <h1 className="text-gray font-inter text-[12px] font-medium">
-              Plan
-            </h1>
-            <div className="w-5 h-5  flex justify-center items-center bg-green rounded-full text-black font-bold text-[11px]">
-              {planCart.length}
+          <Link href="/my-plan">
+            <div className="flex gap-2 items-center cursor-pointer">
+              <h1 className="text-gray font-inter text-[12px] font-medium">
+                Plan
+              </h1>
+              <div className="w-5 h-5  flex justify-center items-center bg-[#ccff00] rounded-full text-black font-bold text-[11px]">
+                {planCart.length}
+              </div>
             </div>
-          </div>
-          <div className="flex gap-2 items-center cursor-pointer">
-            <h1 className="text-darkGray font-inter text-[12px] font-medium">
-              Saved
-            </h1>
-            <div className="w-5 h-5  flex justify-center items-center bg-green rounded-full text-black font-bold text-[11px]">
-             {savedCart.length}
+          </Link>
+          <Link href="/my-plan">
+            <div className="flex gap-2 items-center cursor-pointer">
+              <h1 className="text-darkGray font-inter text-[12px] font-medium">
+                Saved
+              </h1>
+              <div className="w-5 h-5  flex justify-center items-center border border-[#2D313B] rounded-full text-gray font-bold text-[11px]">
+                {savedCart.length}
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 

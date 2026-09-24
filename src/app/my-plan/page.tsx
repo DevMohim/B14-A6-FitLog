@@ -23,7 +23,6 @@ const MyPlanPage = () => {
       } else if (sortBy === "calories") {
         return secondApp.caloriesBurned - firstApp.caloriesBurned;
       }
-
       return secondApp.rating - firstApp.rating;
     });
   }, [currentPlanCart, sortBy]);

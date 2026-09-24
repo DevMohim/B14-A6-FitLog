@@ -4,6 +4,7 @@ import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { TbFlameFilled } from "react-icons/tb";
 import PlanDeleteBtn from "../MyAppPage/PlanDeleteBtn";
 import Link from "next/link";
+import DoneBtn from "../MyAppPage/DoneBtn";
 
 const PlanCard = ({
   workout,
@@ -19,7 +20,13 @@ const PlanCard = ({
     <div className="flex flex-col md:flex-row gap-4 justify-between items-center p-4 bg-[#14171E] border border-[#232732] rounded-2xl ">
       {/* left */}
       <div className="flex gap-4 items-center">
-        <Image src={image} alt={name} width={80} height={144}  className="w-36 h-20 rounded-xl"/>
+        <Image
+          src={image}
+          alt={name}
+          width={80}
+          height={144}
+          className="w-36 h-20 rounded-xl"
+        />
         {/* info */}
         <div>
           <h1 className="font-oswald text-white font-bold">{name}</h1>
@@ -58,11 +65,7 @@ const PlanCard = ({
             View Details
           </button>
         </Link>
-        <button
-          className={`bg-green rounded-2xl text-black font-semibold text-[12px] px-5 py-2 cursor-pointer ${activeTab === "saved" ? "hidden" : ""}`}
-        >
-          ✓ Mark as done{" "}
-        </button>
+        <DoneBtn workout={workout} activeTab={activeTab} />
         <PlanDeleteBtn workout={workout} activeTab={activeTab} />
       </div>
     </div>

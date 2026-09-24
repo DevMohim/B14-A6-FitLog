@@ -4,14 +4,29 @@ import PlanCard from "@/components/shared/PlanCard";
 import { useWorkoutContext } from "@/context/workoutContext";
 import { IWorkoutType } from "@/types/workout.type";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+
+type SortOption = "duration" | "calories" | "rating";
 
 const MyPlanPage = () => {
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
+  const [sortBy, setSortBy] = useState<SortOption>("duration");
   const { planCart, savedCart } = useWorkoutContext();
 
   const currentPlanCart = activeTab === "today" ? planCart : savedCart;
-  const currentSavedCart = activeTab === 'saved' ? savedCart : planCart;
+  const currentSavedCart = activeTab === "saved" ? savedCart : planCart;
+
+  const sortedApps = useMemo(() => {
+    return [...currentPlanCart].sort((firstApp, secondApp) => {
+      if (sortBy === "duration") {
+        return firstApp.duration - secondApp.duration;
+      } else if (sortBy === "calories") {
+        return secondApp.caloriesBurned - firstApp.caloriesBurned;
+      }
+
+      return secondApp.rating - firstApp.rating;
+    });
+  }, [currentPlanCart, sortBy]);
 
   const totalPlanMinutes = currentPlanCart.reduce(
     (acc, workout) => acc + workout.duration,
@@ -102,20 +117,22 @@ const MyPlanPage = () => {
             </label>
             <select
               id="sort"
+              value={sortBy}
               defaultValue="Duration"
               className="select rounded-lg border-[#232732] bg-[#13161D] pr-14 text-white"
+              onChange={(e) => setSortBy(e.target.value as SortOption)}
             >
-              <option>Duration</option>
-              <option>Calories</option>
-              <option>Rating</option>
+              <option value="duration">Duration</option>
+              <option value="calories">Calories</option>
+              <option value="rating">Rating</option>
             </select>
           </div>
         </div>
 
         {/* Workout cards */}
-        {currentPlanCart.length > 0 ? (
+        {sortedApps.length > 0 ? (
           <div className="grid grid-cols-1 gap-4">
-            {currentPlanCart.map((workout: IWorkoutType) => (
+            {sortedApps.map((workout: IWorkoutType) => (
               <PlanCard
                 key={workout.id}
                 workout={workout}

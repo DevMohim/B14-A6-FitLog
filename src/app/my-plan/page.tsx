@@ -35,7 +35,6 @@ const MyPlanPage = () => {
     (acc, workout) => acc + workout.duration,
     0,
   );
-
   const totalPlanCalories = currentPlanCart.reduce(
     (acc, workout) => acc + workout.caloriesBurned,
     0,
@@ -144,7 +143,7 @@ const MyPlanPage = () => {
             <h1 className="font-oswald text-xl font-bold text-white">
               Nothing here yet
             </h1>
-            <p className="text-[12px] text-[#A1A1AA] mb-6">
+            <p className="text-[12px] text-[#A1A1AA] mb-6 mt-2">
               Browse the library and add a lift to get today moving.
             </p>
             <Link href="/">

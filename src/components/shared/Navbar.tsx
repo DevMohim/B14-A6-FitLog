@@ -90,13 +90,28 @@ const Navbar = () => {
         </div>
       </div>
 
+      {isMenuClick && (
+        <button
+          type="button"
+          aria-label="Close menu"
+          className="fixed inset-0 z-40 cursor-default"
+          onClick={() => setIsMenuClick(false)}
+        />
+      )}
+
       {/* Mobile menu */}
       <div
-        className={`px-4 md:px-2 lg:px-0 lg:hidden flex  ${isMenuClick ? "max-h-96" : "max-h-0 overflow-hidden"} absolute top-14 left-0`}
+        aria-hidden={!isMenuClick}
+        className={`absolute top-14 left-0 right-0 z-50 overflow-hidden rounded-lg bg-dark p-4
+    transition-[max-height,opacity,visibility] duration-200 ease-in-out
+    lg:hidden
+    ${
+      isMenuClick
+        ? "visible max-h-96 opacity-100"
+        : "invisible max-h-0 opacity-0"
+    }`}
       >
-        <ul className={`menu menu-horizontal px-1 flex flex-col`}>
-          {navlinks}
-        </ul>
+        <ul className="menu menu-vertical px-1">{navlinks}</ul>
       </div>
     </nav>
   );

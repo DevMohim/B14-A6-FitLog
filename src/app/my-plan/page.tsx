@@ -116,7 +116,6 @@ const MyPlanPage = () => {
             <select
               id="sort"
               value={sortBy}
-              defaultValue="Duration"
               className="select rounded-lg border-[#232732] bg-[#13161D] pr-14 text-white"
               onChange={(e) => setSortBy(e.target.value as SortOption)}
             >

@@ -2,7 +2,7 @@ import { IWorkoutType } from "@/types/workout.type";
 import Image from "next/image";
 import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { TbFlameFilled } from "react-icons/tb";
-import SavedDeleteBtn from "../MyAppPage/SavedDeleteBtn";
+import SavedDeleteBtn from "../MyPlanPage/SavedDeleteBtn";
 import Link from "next/link";
 
 const SavedCard = ({ workout }: { workout: IWorkoutType }) => {

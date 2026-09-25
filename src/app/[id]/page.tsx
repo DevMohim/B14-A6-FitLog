@@ -2,7 +2,13 @@ import AddPlanBtn from "@/components/DetailsPage/AddPlanBtn";
 import { IWorkoutType } from "@/types/workout.type";
 import Image from "next/image";
 import SavedLaterBtn from "@/components/DetailsPage/SavedLaterBtn";
+import { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+  title: "Fit-log | Details",
+  description: "Individual exercisse details page.",
+};
 interface DetailsPageProps {
   params: {
     id: string;

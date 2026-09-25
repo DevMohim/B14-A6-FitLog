@@ -2,9 +2,9 @@ import { IWorkoutType } from "@/types/workout.type";
 import Image from "next/image";
 import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { TbFlameFilled } from "react-icons/tb";
-import PlanDeleteBtn from "../MyAppPage/PlanDeleteBtn";
+import PlanDeleteBtn from "../MyPlanPage/PlanDeleteBtn";
 import Link from "next/link";
-import DoneBtn from "../MyAppPage/DoneBtn";
+import DoneBtn from "../MyPlanPage/DoneBtn";
 
 const PlanCard = ({
   workout,

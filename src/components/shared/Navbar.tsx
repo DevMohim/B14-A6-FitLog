@@ -54,12 +54,19 @@ const Navbar = () => {
         </div>
         {/* left */}
         <div className="">
-          <div className="flex gap-2.5 items-center">
-            <Image src={Logo} alt="Fit-log Logo" height={28} width={28}></Image>
-            <h1 className="uppercase text-lg font-black tracking-[0.9px] font-oswald text-white">
-              Fitlog
-            </h1>
-          </div>
+          <Link href='/'>
+            <div className="flex gap-2.5 items-center">
+              <Image
+                src={Logo}
+                alt="Fit-log Logo"
+                height={28}
+                width={28}
+              ></Image>
+              <h1 className="uppercase text-lg font-black tracking-[0.9px] font-oswald text-white">
+                Fitlog
+              </h1>
+            </div>
+          </Link>
         </div>
         {/* middle */}
         <div className=" hidden lg:flex">
